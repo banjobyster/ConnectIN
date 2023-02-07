@@ -19,10 +19,9 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
     const main = palette.neutral.main;
     const medium = palette.neutral.medium;
     const isFriend = friends.find((friend) => friend._id === friendId);
-    // console.log(friendId, name, isFriend, friends);
 
     const patchFriend = async () => {
-        const response = await fetch(`http://localhost:3001/users/${_id}/${friendId}`,{
+        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/users/${_id}/${friendId}`,{
             method: "PATCH",
             headers: {
                 Authorization: `Bearer ${token}`,
