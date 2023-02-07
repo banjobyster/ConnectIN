@@ -13,6 +13,13 @@ function App() {
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
   const isAuth = Boolean(useSelector((state) => state.token));
 
+  // Psuedo get request wake up sleeping server (free server ;-;)
+  const pingServer = async () => {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/pingServer`);
+  }
+
+  pingServer();
+
   return (
     <div className="app">
       <BrowserRouter>
